@@ -13,7 +13,8 @@ const get = (ll, n) => {
 }
  
 const main = () => {
-	get();
+	let ll = clink([1, 2, 3,  4, 5, 6]);
+	u.p(get(ll, 3));
 }
  
 main();
