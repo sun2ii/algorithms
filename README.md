@@ -1,38 +1,40 @@
 # fang
 
 ## Quick Statistics
-Chapter 1 consists of 
-	* Arrays and Strings I
-	* Subarray Problems
-	* Binary Search
-	* Recursion and Backtracking
-	* Linked Lists
-It has 15 Subchapters.
-It has 47 total problems.
+Chapter 1 (15 subchapters, 47 problems)
 
-Chapter 2 consists of 
-	* Stack
-	* Queue
+	* Arrays and Strings I  
+	* Subarray Problems  
+	* Binary Search  
+	* Recursion and Backtracking  
+	* Linked Lists  
+
+Chapter 2 ()
+
+	* Stack  
+	* Queue  
 	* Dynamic Programming
-	* Arrays and Strings II
-	* Hash Table & Hash Functions
+	* Arrays and Strings II  
+	* Hash Table & Hash Functions  
+  
+Chapter 3 ()
 
-Chapter 3 consists of 
-	* Graphs I
-	* Heap
-	* Line Sweep
-	* Selection Algorithm
-	* Sorting Algorithms
+	* Graphs I  
+	* Heap  
+	* Line Sweep  
+	* Selection Algorithm  
+	* Sorting Algorithms  
+  
+Chapter 4 ()
 
-Chapter 4 consists of 
-	* Graphs II
-	* Binary Tree
-	* Binary Search Tree
-	* Trie
-
-## Chapter 1
-* Array and Strings 1 (9)      
-
+	* Graphs II  
+	* Binary Tree  
+	* Binary Search Tree  
+	* Trie  
+  
+## Chapter 1  
+* Array and Strings 1 (9)        
+  
 	a. Reverse (2)     
 
 		1. Clone Even Numbers    
