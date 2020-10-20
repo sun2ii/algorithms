@@ -40,6 +40,7 @@
 2. Write test cases for each problem
 3. Write Time/Space complexity for each problem
 4. Write a schedule/quiz/test or "spaced repetition"
+5. Data Structures, create a "class_methods" folder (replace LINK_intro with LINK_class_methods)
 
 ### Object/Hash Maps
 Hash maps typically have 3 components to it:
@@ -97,3 +98,32 @@ Redo
 	1. Redo EVERYTHING. Reformat items where it is similar to other problems
 
 Then go through the next 100 leetcode problems.
+
+## Queue
+First In First Out (FIFO)
+> Enqueue
+> Dequeue
+
+Queues are REALLY good for "Sliding Windows"
+
+## DP
+1. Any DFS Problem: Yes, Depth First Search uses DP! Who knew! When we check the state of each node, we are storing and re-using the same subproblem.
+2. Subarray Sum Problems Question #1: Given an array of integers, find the contiguous subarray with the maximum sum. The array can contain both negative and positive integers.
+3. Max Diff Homework #1:  How much money could you have made with 2 trades?
+4. Backtracking Problems Question #2: Maze with 4 directional Movement
+5. Topological Sort Homework #1: Diameter of Graph: Given a graph, find the length of the longest path among any two vertices.
+
+Dynamic Programming is the act of breaking down the problem to smaller subproblems and storing the subproblem's solutions
+
+* Optimal Substructure - Use Sub problems
+* Overlapping Subproblems - Reuse Sub Problems
+(Think Use/Reuse in DP)
+
+- Identify Solution in terms of subproblems
+- Use/Reuse subproblems
+
+1. Top Down  - Recursion + Memoization
+2. Bottom Up - Tabulation (DP)
+
+DP(bottom-up): O(n) time and O(1) space (since we're only keeping the last 2 results)
+DP(top-down): O(n) time and O(n) space

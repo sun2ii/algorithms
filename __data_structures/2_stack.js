@@ -93,8 +93,8 @@ class StackWithMax {
 	}
 }
 
-const cstack = a => {
-	let stack = new Stack();
+const cstack = (a, type = "reg") => {
+	let stack = type === "reg" ? new Stack() : new StackWithMax();
 	for (let i = 0; i < a.length; i++) stack.push(a[i])
 	return stack;
 }
@@ -106,18 +106,10 @@ const castack = (a, b) => {
 	return stack;
 }
 
-const cmstack = a => {
-	let stack = new StackWithMax();
-	for (let i = 0; i < a.length; i++) stack.push(a[i])
-	return stack;
-}
-
-
 module.exports = {
 	Stack,
 	ArrayStack,
 	StackWithMax,
 	cstack,
 	castack,
-	cmstack
 }
