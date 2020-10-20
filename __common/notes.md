@@ -68,3 +68,32 @@ It's very important to know what goes where when you are using a hash map.
 
 ## Quiz 
 * Find the problems on leetcode and create a link to test yourself every week
+
+## Stacks
+Last In First Out (LIFO)
+> Push
+> Pop
+> Peek
+
+Similar to a Linked List,
+assume that Stack data structure is there
+
+Stack Data Structure is very similar to a LinkedList
+Traversing a Stack ==> O(n)
+
+### Process
+10/26
+Computer
+	1. Go through all 19 lectures
+	2. Log everything
+
+Once everything is logged:
+
+Art
+	1. Draw diagrams of each problem
+	2. Try and gather similar concepts/patterns and put them in an excel sheet or somewhere
+
+Redo
+	1. Redo EVERYTHING. Reformat items where it is similar to other problems
+
+Then go through the next 100 leetcode problems.
