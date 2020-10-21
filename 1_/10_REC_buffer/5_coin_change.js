@@ -1,4 +1,4 @@
-const u = require("../__common/utils");
+const u = require("../../__common/utils");
 
 // Time  o(n!)
 // Space o(n)
@@ -8,25 +8,27 @@ const coinChange = (a, x) => {
 }
 
 const coinChangeHelper = (a, x, startIdx, buffer, sum) => { 
-	console.log('here') // only need to do once
+	// console.log('pushing, going down to node:', a, x, startIdx, buffer, sum);
+	u.pl();
+	process.stdout.write('pushing, going down to node:');
+	u.par(a, x, startIdx);
+	u.p(buffer, sum);
 	if (sum > x) {
-		console.log('going to go back up the node, this is what i am popping out:')
 		return;
 	}
 	if (sum === x) {
-		console.log('going to go back up the node, this is what i am popping out:')
 		// console.log('buffer', buffer);
 		return;
 	}
 
 	for (let i = startIdx; i < a.length; i++) {
 		buffer.push(a[i]);
-		console.log('here'); // will need to call every time it branches out if recursive call gets called out 
 		coinChangeHelper(a, x, i, buffer, sum + a[i]);
 		buffer.pop();
 	}
 
-	console.log('going to go back up the node, this is what i am popping out:') // last pop print
+	// console.log('going to go back up the node, this is what i am popping out:') // last pop print
+	console.log('popping, going up from node:', a, x, startIdx, buffer, sum);
 }
 
 const main = () => {

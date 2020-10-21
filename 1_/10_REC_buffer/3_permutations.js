@@ -1,4 +1,4 @@
-const u = require("../__common/utils");
+const u = require("../../__common/utils");
 
 // Time  o(n!)
 // Space o(n)
@@ -8,8 +8,14 @@ const permutations = (a, x) => {
 }
 
 const permutationsHelper = (a, buffer, bufferIdx, isInBuffer) => { 
+	u.pl();
+	// process.stdout.write('pushing, going down to node:');
+	// u.p(a);
+	// u.par(buffer, bufferIdx);
+	console.log('pushing going down to node:', 'a, buffer, bufferIdx, isInBuffer', buffer, bufferIdx, isInBuffer)
 	if (bufferIdx === buffer.length) {
 		console.log('buffer', buffer)
+		console.log('1popping going up from node:', 'a, buffer, bufferIdx, isInBuffer', buffer, bufferIdx, isInBuffer)
 		return;
 	}
 
@@ -22,6 +28,8 @@ const permutationsHelper = (a, buffer, bufferIdx, isInBuffer) => {
 			isInBuffer[i] = false;
 		}
 	}
+
+	console.log('2popping going up from node:', 'a, buffer, bufferIdx, isInBuffer', a, buffer, bufferIdx, isInBuffer)
 }
 
 
