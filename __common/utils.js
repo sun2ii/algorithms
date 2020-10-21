@@ -142,18 +142,44 @@ const getLastNumber = a => {
 	return i;
 }
 
+const resizeWithZeroes = (a, size) => {
+	if (size < a.length) return;
+
+	let aIndex = a.length - 1;
+
+	let result = Array(size).fill(0);
+	let resultIndex = result.length - 1;
+
+	while (aIndex >= 0) {
+		result[resultIndex] = a[aIndex];
+		resultIndex--;
+		aIndex--;
+	}
+
+	return result;
+}
+
+const trimBeginningZeroes = a => {
+	let i = 0;
+	while (i < a.length && a[i] === 0) i++;
+
+	return (i === a.length) ? [0] : a.slice(i, a.length);
+}
+
 const write = x => process.stdout.write(x);
 const log = x => console.log(x);
 
- module.exports = {
-	 pl,
-	 p,
-	 par,
-	 plink,
-	 plinktr,
-	 pm,
-	 cd,
-	 swap,
-	 getLastNumber,
-	 color
- }
+module.exports = {
+	pl,
+	p,
+	par,
+	plink,
+	plinktr,
+	pm,
+	cd,
+	color,
+	swap,
+	getLastNumber,
+	resizeWithZeroes,
+	trimBeginningZeroes
+}
