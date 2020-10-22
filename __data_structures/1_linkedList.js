@@ -1,4 +1,5 @@
 const u = require('../__common/utils');
+const { Node } = require('./0_node');
 
 class LinkedList {
 	constructor() {
@@ -62,13 +63,6 @@ class LinkedList {
 	}
 }
 
-class Node {
-	constructor(e) {
-		this.val = e;
-		this.next = null;
-	}
-}
-
 const appendToList = (original, toAppend) => {
 	if (toAppend === null || toAppend && toAppend.head === null) return;
 
@@ -88,7 +82,6 @@ const clink = (a, cycle = false) => {
 
 module.exports = {
 	LinkedList,
-	Node,
 	clink,
 	appendToList
 }

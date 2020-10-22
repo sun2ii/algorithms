@@ -127,3 +127,19 @@ Dynamic Programming is the act of breaking down the problem to smaller subproble
 
 DP(bottom-up): O(n) time and O(1) space (since we're only keeping the last 2 results)
 DP(top-down): O(n) time and O(n) space
+
+### Graphs
+1. Adjacency List 
+	A -> { B, C }
+	C -> { B, D }
+2. Adjacency Matrix
+	  A  B  C  D
+	A 0  1  1  0
+	B 0  0  0  0
+	C 0  1  0  1
+	D 0  0  0  0
+
+* Graphs are combinations of NODES and EDGES
+* DIRECTED GRAPH has edges that only apply 1 way
+* UNDIRECTED GRAPH has double sided edges
+* CLIQUE is when each node has an edge to every other node
