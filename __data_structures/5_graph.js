@@ -4,15 +4,22 @@ class Graph {
 	}
 
 	addVertex(vertex) {
-		if (!this.nodes[vertex]) this.nodes[vertex] = [];
+		if (!this.nodes[vertex]) this.nodes[vertex] = {};
 	}
 
 	addEdge(a, dest) {
 		if (!this.nodes[a]) this.addVertex(a);
 		if (!this.nodes[dest]) this.addVertex(dest);
 
-		this.nodes[a].push(dest);
-		this.nodes[dest].push(a);
+		if (this.nodes[a].neighbors === undefined) 
+			this.nodes[a].neighbors = [this.nodes[dest]];
+		else 
+			this.nodes[a].neighbors.push(this.nodes[dest])
+
+		if (this.nodes[dest].neighbors === undefined) 
+			this.nodes[dest].neighbors = [this.nodes[a]];
+		else 
+			this.nodes[dest].neighbors.push(this.nodes[a]);
 	}
 
 	removeVertex(vertex) {
@@ -38,6 +45,36 @@ class Graph {
 	}
 }
 
+const createNode = val => {
+	return {
+		state: "unvisited",
+		neighbors: [],
+		val: val
+	}
+}
+
+const cgraph = a => {
+	let res = new Graph();
+
+	for (let i = 0; i < a.length; i++) {
+		res.addVertex(a[i]);
+	}
+
+	for (let i = 1; i < a.length; i++) {
+		res.addEdge(a[i], a[i] - 1)
+	}
+
+	for (let key in res.nodes) {
+		res.nodes[key].state = "unvisited";
+		res.nodes[key].val = parseInt(key);
+	}
+
+	return res.nodes;
+}
+
+
 module.exports = {
-	Graph
+	Graph,
+	createNode,
+	cgraph
 }
