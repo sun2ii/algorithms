@@ -1,3 +1,5 @@
+const u = require("../__common/utils");
+
 class Graph {
 	constructor() {
 		this.nodes = {};
@@ -53,20 +55,29 @@ const createNode = val => {
 	}
 }
 
-const cgraph = a => {
+const cgraph = (a, top = false) => {
 	let res = new Graph();
 
 	for (let i = 0; i < a.length; i++) {
 		res.addVertex(a[i]);
 	}
 
-	for (let i = 1; i < a.length; i++) {
-		res.addEdge(a[i], a[i] - 1)
+	if (!top) {
+		for (let i = 1; i < a.length; i++) {
+			res.addEdge(a[i], a[i] - 1)
+		}
+	} else {
+		res.addEdge(1, 2);
+		res.addEdge(1, 4);
+		res.addEdge(2, 4);
+		res.addEdge(2, 3);
+		res.addEdge(2, 5);
 	}
 
 	for (let key in res.nodes) {
 		res.nodes[key].state = "unvisited";
 		res.nodes[key].val = parseInt(key);
+		if (top) res.nodes[key].longestPath = 0;
 	}
 
 	return res.nodes;

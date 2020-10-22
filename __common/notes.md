@@ -41,6 +41,7 @@
 3. Write Time/Space complexity for each problem
 4. Write a schedule/quiz/test or "spaced repetition"
 5. Data Structures, create a "class_methods" folder (replace LINK_intro with LINK_class_methods)
+6. Need to do Topological Graph + Implement Min + Max Heaps
 
 ### Object/Hash Maps
 Hash maps typically have 3 components to it:
@@ -143,3 +144,16 @@ DP(top-down): O(n) time and O(n) space
 * DIRECTED GRAPH has edges that only apply 1 way
 * UNDIRECTED GRAPH has double sided edges
 * CLIQUE is when each node has an edge to every other node
+
+* Generate test cases for topological sort
+
+## Heaps
+Max Heap 
+- Binary Tree
+- Parent > Child
+- Root is greatest element
+- O(1) lookup of max element
+- O(logn) for insertion
+- O(logn) for deletion
+
+

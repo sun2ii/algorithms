@@ -1,6 +1,8 @@
 const u = require('../__common/utils');
 const { Stack } = require('./2_stack');
 
+// Push - Enqueue
+// Shift - Dequeue
 class Queue {
 	constructor() {
 		this.items = [];
