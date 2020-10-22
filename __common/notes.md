@@ -141,8 +141,8 @@ DP(top-down): O(n) time and O(n) space
 	D 0  0  0  0
 
 * Graphs are combinations of NODES and EDGES
-* DIRECTED GRAPH has edges that only apply 1 way
-* UNDIRECTED GRAPH has double sided edges
+* DIRECTED GRAPH -> 1 way
+* UNDIRECTED GRAPH -> 2 ways
 * CLIQUE is when each node has an edge to every other node
 
 * Generate test cases for topological sort
@@ -177,3 +177,4 @@ Fit large dataset if it doesn't fit in your ram
 * Heap Implementation
 * Skyline Problem
 * Inspirational Youtubers
+* Graph test case one-way examples
