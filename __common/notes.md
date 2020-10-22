@@ -156,4 +156,24 @@ Max Heap
 - O(logn) for insertion
 - O(logn) for deletion
 
+# Sorting
+1. O(n^2)  
+	Insertion Sort 
+	Bubble Sort
+	Selection Sort 
 
+2. O(n log n)
+	Merge Sort - Stable sort (index is consistent)
+	Quick Sort
+
+3. O(n log n)
+	Bucket Sort
+	Radix Sort
+
+Sort Stability -> Indexing
+Fit large dataset if it doesn't fit in your ram
+
+# Questions
+* Heap Implementation
+* Skyline Problem
+* Inspirational Youtubers
