@@ -173,6 +173,10 @@ Max Heap
 Sort Stability -> Indexing
 Fit large dataset if it doesn't fit in your ram
 
+## Tries
+* Useful for dictionary-like problems
+* Implementing Auto-complete
+
 # Questions
 * Heap Implementation
 * Skyline Problem
