@@ -83,7 +83,7 @@ const arrayToList = (a, cycle = false) => {
 	while (node !== null && node.next) node = node.next;
 	list.tail = node;
 
-	if (cycle) list.tail.next = list.head.next.next;
+	if (cycle) list.tail.next = list.head;
 
 	return list;
 }

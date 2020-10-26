@@ -121,11 +121,9 @@ const pm = (m, i, j) => {
 			console.log('')
 			pl()
 		},
-		pointers: (ll, a, b, label) => {
+		pointers: (ll, x, y, label) => {
 			if (ll === null) return;
 			let list = listToArray(ll);
-			console.log('ll', ll)
-			console.log('list', list)
 
 			if (!list.length) {
 				log(color("empty list", "red"));
@@ -140,16 +138,17 @@ const pm = (m, i, j) => {
 
 			if (label) write(label + ": ");
 
-			return;
-
-			// for (let i = 0; i < list.length; i++)  {
-				// let value = list[i].value;
-					// write(color(`${value} > `, "red"))
-					// write(color(`${value}`, "green"), 1)
-					// write(color(`${value} > `, "green"), 1)
-					// write(color(`${value} `, "blue"))
-					// write(color(`${value} > `, "blue"))
-			// }
+			for (let i = 0; i < list.length; i++)  {
+				let value = list[i].value;
+				if (x === i) write(color(`${value} > `, "red"))
+				else if (y === i) write(color(`${value} > `, "green"), 1)
+				else if (i === list.length - 1)
+					write(color(`${value}`, "blue"), 1)
+				else 
+					write(color(`${value} > `, "blue"), 1)
+			}
+			log();
+			pl();
 		}
 	}
 
@@ -234,7 +233,7 @@ const trimBeginningZeroes = a => {
 }
 
 const write = x => process.stdout.write(x);
-const log = x => console.log(x);
+const log = x => x ? console.log(x) : console.log('');
 
 module.exports = {
 	pl,
