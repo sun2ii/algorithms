@@ -3,6 +3,12 @@ const { LinkedList, clink, Node, appendToList } = require('../00_data_structures
 
 // Time  o(n)
 // Space o(1)
+
+// 1. Create Linked List for each 1,2,3
+// 2. Loop through A and add node to each l1,l2,l3
+// 3. Verify that tails are empty
+// 4. Create "result" Linked List, and append l1, l2, l3
+
 const sort_123 = a => {
 	if (a === null) return new LinkedList();
 	u.plink('a', a)

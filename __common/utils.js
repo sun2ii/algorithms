@@ -15,7 +15,8 @@
 		 "teal": 36,
 	 }
 
-	 return (end) ? `\u001b[${map[col]}m${s}\u001b[0m` : `\u001b[${map[col]}m${s}\u001b[0m, `;
+	 return `\u001b[${map[col]}m${s}\u001b[0m`;
+	//  return (end) ? `\u001b[${map[col]}m${s}\u001b[0m` : `\u001b[${map[col]}m${s}\u001b[0m, `;
  }
 
  const cd = () => {
@@ -70,9 +71,9 @@ const pm = (m, i, j) => {
 		for (let col = 0; col < m[row].length; col++) {
 			if (m[row][col] < 10 && m[row][col] >= 0) {
 				if (i && j && row === i && col === j) {
-					write(color(`${m[row][col]} `, "red", true));
+					write(color(`${m[row][col]} `, "yellow"));
 				} else {
-					write(color(`${m[row][col]} `, "green", true));
+					write(color(`${m[row][col]} `, "green"));
 				}
 			}
 		}
@@ -83,27 +84,93 @@ const pm = (m, i, j) => {
     /******************
      * LINKED LIST PRINT
      ******************/
- const plink = (name, ll, detail = null) => {
-	console.log(name + ": ");
-	if (ll === null) return;
-	let list = ll.print(1);
 
-	for (let i = 1; i <= ll.length; i++) {
-		if (i > 1 && ll.print(i)) {
-			list += ll.print(i).substring(1)
+	const linkedListHelper = {
+		print: (ll, label) => {
+			if (ll === null) return;
+			let list = listToArray(ll);
+
+			if (!list.length) {
+				log(color("empty list", "red"));
+				return;
+			}
+
+			if (list.length === 1) {
+				log(color(`${list[0].value}`, "blue"));
+				pl();
+				return;
+			}
+
+			if (label) write(label + ": ");
+
+			for (let i = 0; i < list.length; i++)  {
+				let value = list[i].value;
+				if (list[i].head && list.length > 1) {
+					write(color(`${value} > `, "red"))
+				} else if (list[i].tail && i === list.length - 1)  {
+					write(color(`${value}`, "green"), 1)
+				} else if (list[i].tail && i !== list.length - 1)  {
+					write(color(`${value} > `, "green"), 1)
+				}  else if (!list[i].head && !list[i].tail && i === list.length - 1) {
+					write(color(`${value} `, "blue"))
+				} else {
+					write(color(`${value} > `, "blue"))
+				}
+			}
+
+			console.log('')
+			pl()
+		},
+		pointers: (ll, a, b, label) => {
+			if (ll === null) return;
+			let list = listToArray(ll);
+			console.log('ll', ll)
+			console.log('list', list)
+
+			if (!list.length) {
+				log(color("empty list", "red"));
+				return;
+			}
+
+			if (list.length === 1) {
+				log(color(`${list[0].value}`, "blue"));
+				pl();
+				return;
+			}
+
+			if (label) write(label + ": ");
+
+			return;
+
+			// for (let i = 0; i < list.length; i++)  {
+				// let value = list[i].value;
+					// write(color(`${value} > `, "red"))
+					// write(color(`${value}`, "green"), 1)
+					// write(color(`${value} > `, "green"), 1)
+					// write(color(`${value} `, "blue"))
+					// write(color(`${value} > `, "blue"))
+			// }
 		}
 	}
 
-	console.log(color(list, "blue", true))
+	const listToArray = list => {
+		let a = [];
+		let node = list.head;
+		let i = 0;
 
-	if (detail) {
-		for (let i = 1; i <= ll.length; i++) {
-			if (ll.print(i) !== undefined)
-				console.log(`${color(i, "blue", true)}:`, ll.print(i))
+		while (node !== null && i !== list.length) {
+			a.push({
+				value : node.value,
+				next  : (node.next) ? node.next.value : null,
+				head : node === list.head ? 1 : 0,
+				tail : node === list.tail ? 1 : 0
+			});
+			node = node.next;
+			i++;
 		}
+
+		return a;
 	}
-	pl()
- }
 
  const plinktr = (ll, x, y, len = ll.length) => {
 	if (ll === null) return;
@@ -173,7 +240,6 @@ module.exports = {
 	pl,
 	p,
 	par,
-	plink,
 	plinktr,
 	pm,
 	cd,
@@ -181,5 +247,6 @@ module.exports = {
 	swap,
 	getLastNumber,
 	resizeWithZeroes,
-	trimBeginningZeroes
+	trimBeginningZeroes,
+	linkedListHelper
 }

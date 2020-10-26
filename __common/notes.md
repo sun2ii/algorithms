@@ -182,3 +182,27 @@ Fit large dataset if it doesn't fit in your ram
 * Skyline Problem
 * Inspirational Youtubers
 * Graph test case one-way examples
+
+A	Data Structures
+	1	Linked List
+	2	Stack
+	3	Queue
+	4	Hash Table
+	5	Heap
+	6	Graphs
+	7	BST/Trees
+	8	Tries
+	
+B	Arrays
+	1	Arrays and Strings
+	2	Subarray Problems
+	3	Binary Search
+	4	Line Sweep
+	
+C	Recursion/DP
+	1	Recursion and Backtracking
+	2	Dynamic Programming
+	
+D	Sort/Selection
+	1	Selection Algorithm
+	2	Sorting Algorithms

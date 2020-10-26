@@ -1,7 +1,8 @@
 class LinkedListNode {
-	constructor(e) {
-		this.val = e;
+	constructor(val) {
 		this.next = null;
+		this.prev = null;
+		this.value = val;
 	}
 }
 
@@ -11,6 +12,10 @@ class BinaryTreeNode {
 		this.right = null;
 		this.value = val;
 	}
+}
+
+class GraphNode {
+	constructor() {}
 }
 
 class TrieNode {
@@ -47,5 +52,6 @@ class TrieNode {
 module.exports = {
 	LinkedListNode,
 	BinaryTreeNode,
+	GraphNode,
 	TrieNode
 }
