@@ -149,7 +149,7 @@ const pm = (m, i, j) => {
 			}
 			log();
 			pl();
-		}
+		},
 	}
 
 	const listToArray = list => {
@@ -170,25 +170,6 @@ const pm = (m, i, j) => {
 
 		return a;
 	}
-
- const plinktr = (ll, x, y, len = ll.length) => {
-	if (ll === null) return;
-	for (let i = 1; i <= len; i++) {
-		if (ll.print(i) !== undefined) {
-			let endArrow = i !== len ? "." : ""
-			if (x && x.val === ll.get(i).val) {
-				write(`${color(x.val, "red", true)}${endArrow}`)
-			} else if (y && y.val === ll.get(i).val) {
-				write(`${color(y.val, "green", true)}${endArrow}`)
-			} else {
-				write(`${color(ll.get(i).val, "blue", true)}${endArrow}`)
-			} 
-		}
-	}
-	console.log('')
-
-	pl()
- }
 
     /******************
      * SWAP
@@ -239,7 +220,6 @@ module.exports = {
 	pl,
 	p,
 	par,
-	plinktr,
 	pm,
 	cd,
 	color,

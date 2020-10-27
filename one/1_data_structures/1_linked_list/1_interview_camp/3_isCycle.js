@@ -11,12 +11,12 @@ const isCycle = a => {
 	let ptrSlow = 0;
 
 	while (fast !== null) {
-		fast = fast.next; ptrFast++;
-		debug(a, ptrSlow, ptrFast, slow, fast)
+		fast = fast.next;
+		ptrFast++; debug(a, ptrSlow, ptrFast, slow, fast)
 		if (slow === fast) return true;
 		if (fast !== null) {
-			fast = fast.next; ptrFast++;
-			debug(a, ptrSlow, ptrFast, slow, fast)
+			fast = fast.next; 
+			ptrFast++; debug(a, ptrSlow, ptrFast, slow, fast)
 			if (slow === fast) return true;
 		}
 		slow = slow.next; ptrSlow++;
