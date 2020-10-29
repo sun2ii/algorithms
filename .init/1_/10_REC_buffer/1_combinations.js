@@ -1,4 +1,4 @@
-const u = require("../__common/utils");
+const u = require("../../../__common/utils");
 
 // Time  o(n!)
 // Space o(n)
