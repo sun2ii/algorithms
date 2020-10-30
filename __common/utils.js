@@ -13,6 +13,10 @@ const arrayHelper = {
 		let x = args[0];
 		let y = args[1];
 		let z = args[2];
+		
+		let x1 = args[3];
+		let y1 = args[4];
+		let z1 = args[5];
 
 		if (typeof(x) === "number" || typeof(y) === "number" || typeof(z) === "number") write("|")
 		if (x !== undefined && typeof(x) === "number") write(color(` ${x} `, "red"))
@@ -42,9 +46,21 @@ const arrayHelper = {
 			write(color(` ${y} `, "green"))
 		}
 		if (z !== undefined && typeof(z) !== "number") {
+			if (typeof(z) === "object") z = JSON.stringify(z);
 			write(color(` ${z} `, "purple"))
 		} 
-		// write(args[3])
+		if (x1 !== undefined && typeof(x1) !== "number") {
+			if (typeof(x1) === "object") x1 = JSON.stringify(x1);
+			write(color(` ${x1} `, "yellow"))
+		} 
+		if (y1 !== undefined && typeof(y1) !== "number") {
+			if (typeof(y1) === "object") y1 = JSON.stringify(y1);
+			write(color(` ${y1} `, "underline"))
+		} 
+		if (z1 !== undefined && typeof(z1) !== "number") {
+			if (typeof(z1) === "object") z1 = JSON.stringify(z1);
+			write(color(` ${z1} `, "teal"))
+		} 
 		log();
 	}
 }

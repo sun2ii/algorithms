@@ -7,7 +7,7 @@ const subArrayToX = (a, x) => {
 	let follower = 0;
 	let food = a[0];
 
-	log('\n1. Leaders charge first, but if he\'s too slow, he becomes a follower');
+	log('\n1. If the leader is too slow, he becomes a follower');
 	log('2. If the leader reaches the end, then its game over');
 	log('3. if you need more food, set the leader in charge');
 	log('4. if you need less food, tell the follower to drop his and move forward')
