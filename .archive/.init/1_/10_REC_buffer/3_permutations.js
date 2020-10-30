@@ -9,9 +9,6 @@ const permutations = (a, x) => {
 
 const permutationsHelper = (a, buffer, bufferIdx, isInBuffer) => { 
 	u.pl();
-	// process.stdout.write('pushing, going down to node:');
-	// u.p(a);
-	// u.par(buffer, bufferIdx);
 	console.log('pushing going down to node:', 'a, buffer, bufferIdx, isInBuffer', buffer, bufferIdx, isInBuffer)
 	if (bufferIdx === buffer.length) {
 		console.log('buffer', buffer)
