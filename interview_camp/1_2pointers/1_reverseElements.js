@@ -1,7 +1,11 @@
+const { arrayHelper: utils, log, line } = require('../../__common/utils');
+
 /*
 -------------------------------------
         Reverse Array
 -------------------------------------
+🕑 O(n)
+🛰 O(1)
 
 1. >< swap
 -------------------------------------
@@ -13,20 +17,10 @@
 -------------------------------------
 */
 
-const { arrayHelper: utils, log, line } = require('../../__common/utils');
-
-// Sorted -> 2 Pointer
-// 🕑 O(n)
-// 🛰 O(1)
 const reverseArray = a => {
 	let i = 0;
 	let j = a.length - 1;
 	
-	line();
-	log('\tReverse Array');
-	line();
-	log('\n1. >< swap');
-	line();
 	while (i < j) {
 		utils.prettyPrint(a, i, j);
 		[a[i], a[j]] = [a[j], a[i]];
@@ -37,8 +31,4 @@ const reverseArray = a => {
 	return a;
 }
  
-const main = () => {
-	reverseArray([1, 2, 3, 4, 5, 6]);
-}
- 
-main();
+reverseArray([1, 2, 3, 4, 5, 6]);
