@@ -9,15 +9,15 @@ const searchInArrayDups = (a, x) => {
 	line();
 	log('\tBinary Search Duplicate');
 	line();
-	log('\n1. >< amgem-, compare left')
+	log('\n1. move end pointer <- if [m] and [m - 1] is the element')
 	line();
 	while (s <= e) {
 		let m = Math.floor(s + (e - s) / 2);
 		utils.prettyPrint(a, s, m, e);
 
-		if (a[m] > x || a[m] === x && a[m - 1] == x && m !== 0) {
+		if (x < a[m]|| x === a[m] && x === a[m - 1] && m !== 0) {
 			e = m - 1;
-		} else if (a[m] < x) {
+		} else if (x > a[m]) {
 			s = m + 1;
 		} else {
 			return m;

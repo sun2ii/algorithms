@@ -7,18 +7,15 @@ const binarySearchIterative = (a, x) => {
 	let e = a.length - 1;
 
 	line();
-	log('\tBinary Search');
-	line();
-	log('\n1. >< problem')
-	log('2. set m, == return m, amgem-, alsm+')
+	log('\tBinary Search 01><');
 	line();
 	while (s <= e) {
 		let m = Math.floor(s + (e - s) / 2);
 		utils.prettyPrint(a, s, m, e, x.toString());
 
-		if (a[m] === x) return m;
-		else if (a[m] > x) e = m - 1;
-		else s = m + 1;
+		if (x === a[m]) return m;
+		else if (x > a[m]) s = m + 1;
+		else e = m - 1;
 	}
 
 	return -1;
@@ -30,9 +27,6 @@ const binarySearchRecursive = (a, x) => {
 	line();
 	log('\tBinary Search Recursive');
 	line();
-	log('\n1. >< problem')
-	log('2. low, high pointers are passed and calculated')
-	line();
 	return binarySearchRecursiveHelper(a, x, 0, a.length - 1);
 }
  
@@ -40,9 +34,9 @@ const binarySearchRecursiveHelper = (a, x, s, e) => {
 	let m = Math.floor(s + (e - s) / 2);
 	utils.prettyPrint(a, s, m, e, x.toString());
 
-	if (a[m] === x) return m;
-	else if (a[m] > x) return binarySearchRecursiveHelper(a, x, s, m - 1);
-	else return binarySearchRecursiveHelper(a, x, m + 1, e);
+	if (x === a[m]) return m;
+	else if (x > a[m]) return binarySearchRecursiveHelper(a, x, m + 1, e);
+	else return binarySearchRecursiveHelper(a, x, s, m - 1);
 }
 
 const main = () => {

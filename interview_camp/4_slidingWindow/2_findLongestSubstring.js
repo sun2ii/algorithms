@@ -31,7 +31,7 @@ const findLongestSubstring = a => {
 
 		storage[item] = leader;
 
-		if (leader - follower + 1 > res) res = leader - follower + 1;
+		res = Math.max(leader - follower + 1, res);
 	}
 
 	console.log('res', res)
