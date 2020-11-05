@@ -18,6 +18,7 @@ const { arrayHelper: utils, log, line } = require('../../__common/utils');
 */
 
 const twoSumSorted = (a, k) => {
+	utils.start(a, k);
 	let i = 0;
 	let j = a.length - 1;
 

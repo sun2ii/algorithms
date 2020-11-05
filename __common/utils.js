@@ -1,12 +1,18 @@
+require('colors');
 /******************
  * BASIC PRINT
  ******************/
- const line = () => log("-------------------------------------");
+ const line = () => log("----------------------------------".rainbow);
 
 /******************
  * ARRAY HELPER
  ******************/
 const arrayHelper = {
+	start: (a, k) => {
+		if (a) log('input:', a);
+		if (k) log('target:', k);
+		line();
+	},
 	prettyPrint: (a, ...args) => {
 		if (a === null) return;
 
@@ -24,19 +30,20 @@ const arrayHelper = {
 		if (z !== undefined && typeof(z) === "number") write(color(`${z} `, "purple"))
 		if (typeof(x) === "number" || typeof(y) === "number" || typeof(z) === "number") write("|")
 		write(" [");
-		for (let i = 0; i < a.length; i++) {
-			let end = false;
-			if (i === a.length - 1) end = true;
+		if (a.length > 0) {
+			for (let i = 0; i < a.length; i++) {
+				let end = false;
+				if (i === a.length - 1) end = true;
 
-			if (i === x && i === a.length - 1) write(color(a[i], "red"))
-			else if (i === y && i === a.length - 1) write(color(a[i], "green"))
-			else if (i === z && i === a.length - 1) write(color(a[i], "purple"))
-			else if (i === x) write(color(a[i], "red") + ", ")
-			else if (i === y) write(color(a[i], "green") + ", ")
-			else if (i === z) write(color(a[i], "purple") + ", ")
-			else if (i === a.length - 1) write(color(a[i], "regular", end))
-			else write(color(a[i], "regular", end) + ", ")
-
+				if (i === x && i === a.length - 1) write(color(a[i], "red"))
+				else if (i === y && i === a.length - 1) write(color(a[i], "green"))
+				else if (i === z && i === a.length - 1) write(color(a[i], "purple"))
+				else if (i === x) write(color(a[i], "red") + ", ")
+				else if (i === y) write(color(a[i], "green") + ", ")
+				else if (i === z) write(color(a[i], "purple") + ", ")
+				else if (i === a.length - 1) write(color(a[i], "regular", end))
+				else write(color(a[i], "regular", end) + ", ")
+			}
 		}
 		write('] ')
 		if (x !== undefined && typeof(x) !== "number") {
