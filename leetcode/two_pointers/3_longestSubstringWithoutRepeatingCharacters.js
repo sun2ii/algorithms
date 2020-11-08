@@ -61,7 +61,7 @@ const longestSubstringWithoutRepeatingCharacters2 = s => {
  
 const main = () => {
 	// log(longestSubstringWithoutRepeatingCharacters("whatwhywhere"));
-	log(longestSubstringWithoutRepeatingCharacters2("whatwhywhere"));
+	log(longestSubstringWithoutRepeatingCharacters2("bbbbb"));
 }
  
 main();

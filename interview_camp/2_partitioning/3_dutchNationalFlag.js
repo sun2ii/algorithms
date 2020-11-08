@@ -3,28 +3,23 @@ const { arrayHelper: utils, log, line } = require('../../__common/utils');
 // 🕑 O(n)
 // 🛰 O(1)
 const dutchNationalFlag = (a, p) => {
-	let low = 0;
-	let high = a.length - 1;
+	let s = 0;
 	let i = 0;
+	let e = a.length - 1;
 
-	log('\n1. Put lows in low, Put eye/highs in high')
-	log('2. i++ if p= and put low')
-	line();
-
-	while (i <= high) {
-		utils.prettyPrint(a, low, i, high);
-		if (a[i] === p) i++ 
+	while (i < e) {
+		if (a[i] === p) i++;
 		else if (a[i] > p) {
-			[a[i], a[high]] = [a[high], a[i]];
-			high--;
+			[a[i], a[e]] = [a[e], a[i]];
+			e--;
 		} else {
-			[a[i], a[low]] = [a[low], a[i]];
-			low++;
+			[a[i], a[s]] = [a[s], a[i]];
+			s++;
 			i++;
 		}
 	}
 
-	log(a);
+	utils.found(a)
 	return a;
 }
  

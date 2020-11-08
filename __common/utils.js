@@ -5,70 +5,80 @@ require('colors');
  const line = () => log("----------------------------------".rainbow);
 
 /******************
- * ARRAY HELPER
+ * DEFAULT HELPER
  ******************/
-const arrayHelper = {
+const helper = {
 	start: (a, k) => {
+		log('--START--'.bgBlue.black)
 		if (a) log('input:', a);
 		if (k) log('target:', k);
 		line();
 	},
+	found: msg => {
+		line();
+		if (typeof msg === 'object') log(`found: [${msg}]`.bgMagenta.black);
+		else log(`found: ${msg}`.bgMagenta.black);
+	},
 	prettyPrint: (a, ...args) => {
-		if (a === null) return;
+		let msg = '[';
 
-		let x = args[0];
-		let y = args[1];
-		let z = args[2];
-		
-		let x1 = args[3];
-		let y1 = args[4];
-		let z1 = args[5];
-
-		if (typeof(x) === "number" || typeof(y) === "number" || typeof(z) === "number") write("|")
-		if (x !== undefined && typeof(x) === "number") write(color(` ${x} `, "red"))
-		if (y !== undefined && typeof(y) === "number") write(color(`${y} `, "green"))
-		if (z !== undefined && typeof(z) === "number") write(color(`${z} `, "purple"))
-		if (typeof(x) === "number" || typeof(y) === "number" || typeof(z) === "number") write("|")
-		write(" [");
-		if (a.length > 0) {
-			for (let i = 0; i < a.length; i++) {
-				let end = false;
-				if (i === a.length - 1) end = true;
-
-				if (i === x && i === a.length - 1) write(color(a[i], "red"))
-				else if (i === y && i === a.length - 1) write(color(a[i], "green"))
-				else if (i === z && i === a.length - 1) write(color(a[i], "purple"))
-				else if (i === x) write(color(a[i], "red") + ", ")
-				else if (i === y) write(color(a[i], "green") + ", ")
-				else if (i === z) write(color(a[i], "purple") + ", ")
-				else if (i === a.length - 1) write(color(a[i], "regular", end))
-				else write(color(a[i], "regular", end) + ", ")
+		for (let i = 0; i < a.length; i++) {
+			if (i === args[0] && i === a.length - 1) {
+				msg += `${a[i]}`.bgRed.black;
+			} else if (i === args[0] && i !== a.length - 1) {
+				msg += `${a[i]}`.bgRed.black + ', ';
+			} else if (i === args[1] && i === a.length - 1) {
+				msg += `${a[i]}`.bgGreen.black;
+			} else if (i === args[1] && i !== a.length - 1) {
+				msg += `${a[i]}`.bgGreen.black + ', ';
+			} else if (i === args[2] && i === a.length - 1) {
+				msg += `${a[i]}`.bgBlue.black;
+			} else if (i === args[2] && i !== a.length - 1) {
+				msg += `${a[i]}`.bgBlue.black + ', ';
+			} else if (i === a.length - 1) {
+				msg += `${a[i]}`;
+			} else {
+				msg += `${a[i]}, `;
 			}
 		}
-		write('] ')
-		if (x !== undefined && typeof(x) !== "number") {
-			write(color(`- ${x} `, "red"))
+	
+		msg += ']';
+	
+		console.log(msg);
+	},
+	baseCase: stringBaseCase => {
+		var msg =
+		`BASE CASE:`.bgMagenta.black + ` ${stringBaseCase};`;
+		console.log(msg);
+	},
+	recursiveStep: (isStart, functionName, variableList, result) => {
+		var msg = '';
+		if (isStart) {
+			msg += `recurse+:`.bgGreen.black + ' ';
+		} else {
+			msg += `backtrack-:`.bgYellow.black + ' ';
 		}
-		if (y !== undefined && typeof(y) !== "number") {
-			write(color(` ${y} `, "green"))
+	
+		msg += `${functionName}(`.bold;
+	
+		for (var i = 0; i < variableList.length; i++) {
+			let variable = variableList[i];
+			if (Array.isArray(variable)) {
+				msg += '[' + variable + ']';
+			} else {
+				msg += variable;
+			}
+			if (i !== variableList.length - 1) {
+				msg += ', ';
+			}
 		}
-		if (z !== undefined && typeof(z) !== "number") {
-			if (typeof(z) === "object") z = JSON.stringify(z);
-			write(color(` ${z} `, "purple"))
-		} 
-		if (x1 !== undefined && typeof(x1) !== "number") {
-			if (typeof(x1) === "object") x1 = JSON.stringify(x1);
-			write(color(` ${x1} `, "yellow"))
-		} 
-		if (y1 !== undefined && typeof(y1) !== "number") {
-			if (typeof(y1) === "object") y1 = JSON.stringify(y1);
-			write(color(` ${y1} `, "underline"))
-		} 
-		if (z1 !== undefined && typeof(z1) !== "number") {
-			if (typeof(z1) === "object") z1 = JSON.stringify(z1);
-			write(color(` ${z1} `, "teal"))
-		} 
-		log();
+	
+		if (isStart || !result) msg += `)`.bold;
+		else if (result) {
+			msg += `)`.bold + ` = ` + `${result}`.bgGreen.black.bold;
+		}
+	
+		console.log(msg);
 	}
 }
 
@@ -161,24 +171,24 @@ const linkedListHelper = {
 	},
 }
 
-	const listToArray = list => {
-		let a = [];
-		let node = list.head;
-		let i = 0;
+const listToArray = list => {
+	let a = [];
+	let node = list.head;
+	let i = 0;
 
-		while (node !== null && i !== list.length) {
-			a.push({
-				value : node.value,
-				next  : (node.next) ? node.next.value : null,
-				head : node === list.head ? 1 : 0,
-				tail : node === list.tail ? 1 : 0
-			});
-			node = node.next;
-			i++;
-		}
-
-		return a;
+	while (node !== null && i !== list.length) {
+		a.push({
+			value : node.value,
+			next  : (node.next) ? node.next.value : null,
+			head : node === list.head ? 1 : 0,
+			tail : node === list.tail ? 1 : 0
+		});
+		node = node.next;
+		i++;
 	}
+
+	return a;
+}
 
 /******************
  * HELPER FUNCTIONS
@@ -259,6 +269,6 @@ module.exports = {
 	line,
 	log,
 	linkedListHelper,
-	arrayHelper,
+	helper,
 	helperFunctions,
 }

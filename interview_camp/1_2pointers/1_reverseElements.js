@@ -18,6 +18,7 @@ const { arrayHelper: utils, log, line } = require('../../__common/utils');
 */
 
 const reverseArray = a => {
+	utils.start(a);
 	let i = 0;
 	let j = a.length - 1;
 	
@@ -27,7 +28,9 @@ const reverseArray = a => {
 		i++;
 		j--;
 	}
+
+	utils.found(a);
 	return a;
 }
  
-console.log(reverseArray([1, 2, 3, 4, 5, 6]));
+reverseArray([1, 2, 3, 4, 5, 6]);

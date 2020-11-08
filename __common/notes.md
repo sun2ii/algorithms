@@ -10,3 +10,19 @@
 3. When last index is found, do a binary search from 0, to last index to find x
 
 ex: x = 30, do (01) between 16 and 32
+
+## 8.1 Combinations
+
+* There are 3 pointers you need to pay attention to:
+	> aIndex
+	> bIndex
+	> i
+
+* Whatever goes into i is what goes into the buffer
+* aIndex is a placeholder for where you are at in your array
+* bIndex keeps track of your bufferIndex
+
+i + 1 => right
+i - 1 => left
+j + 1 => up
+j - 1 => down

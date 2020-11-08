@@ -3,6 +3,7 @@ const { arrayHelper: utils, log, line } = require('../../__common/utils');
 // 🕑 O(n)
 // 🛰 O(1)
 const rgbMarbles = a => {
+	utils.start(a);
 	let red = 0;
 	let i = 0;
 	let blue = a.length - 1;

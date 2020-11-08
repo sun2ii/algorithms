@@ -33,7 +33,7 @@ const findUnsorted = a => {
 	}
 
 	while (s > 0 && a[s - 1] > min) s--;
-	while (e < a.length && a[eIIRFilterNode + 1] < max) e++;
+	while (e < a.length && a[e + 1] < max) e++;
 
 	return [s, e];
 }

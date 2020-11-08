@@ -4,6 +4,7 @@ const { arrayHelper: utils, log, line } = require('../../__common/utils');
 // 🕑 O(n)
 // 🛰 O(n)
 const squares = a => {
+	utils.start(a);
 	let i = 0; 
 	let j = a.length - 1;
 
@@ -11,23 +12,24 @@ const squares = a => {
 	let resultIndex = result.length - 1;
 
 	while (i <= j) {
-		utils.prettyPrint(a, i, j, result);
-		if (i * i >= j * j) {
-			result[resultIndex] = i * i;
+		utils.prettyPrint(a, i, j);
+		if (a[i] * a[i] >= a[j] * a[j]) {
+			result[resultIndex] = a[i] * a[i];
 			i++;
 		} else {
-			result[resultIndex] = j * j;
+			result[resultIndex] = a[j] * a[j];
 			j--;
 		}
 
 		resultIndex--;
 	}
 
+	utils.found(result);
 	return result;
 }
  
 const main = () => {
-	console.log(squares([-4, -2, -1, 0, 3, 5]));
+	squares([-4, -2, -1, 0, 3, 5]);
 }
  
 main();
