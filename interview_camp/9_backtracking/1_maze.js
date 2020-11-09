@@ -1,7 +1,7 @@
 const { helper: utils, log, line } = require('../../__common/utils');
  
-// 🕑 O()
-// 🛰 O()
+// 🕑 O(n)
+// 🛰 O(n^2)
 const maze = a => {
 	let memo = JSON.parse(JSON.stringify(a));
 	for (let i = 0; i < a.length; i++) {

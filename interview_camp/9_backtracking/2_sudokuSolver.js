@@ -1,7 +1,7 @@
 const { helper: utils, log, line } = require('../../__common/utils');
  
-// 🕑 O()
-// 🛰 O()
+// 🕑 O(9^n)
+// 🛰 O(n)
 const sudokuSolver = a => {
 	for (let i = 0; i < a.length; i++) {
 		for (let j = 0; j < a[0].length; j++) {
@@ -19,6 +19,7 @@ const sudokuSolver = a => {
 			}
 		}
 	}
+
 	return true;
 }
 
@@ -26,8 +27,9 @@ const isValid = (a, row, col, c) => {
 	// check row, column, and 3x3 block
 	for (let i = 0; i < 9; i++) {
 		if (a[row][i] !== '.' && a[row][i] === c) return false;
+		if (a[i][col] !== '.' && a[i][col] === c) return false;
 		if (a[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] !== '.' &&
-			a[3 * (row / 3) + i / 3][3 * col / 3 + i % 3] === c) return false;
+			a[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] === c) return false;
 	}
 
 	return true;
