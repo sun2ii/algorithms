@@ -7,7 +7,7 @@
 2. range-sum
   sum=0
   dfs ->
-      if (l <= rv <= r) sum+=rv
+    if (l <= rv <= r) sum+=rv
     if(rl) dfs(rl)
 
 3. path-sum
