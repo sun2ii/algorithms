@@ -1,0 +1,18 @@
+const intersection = (a, b) => {
+  let hash = {};
+  let res  = [];
+
+  for (let i = 0; i < a.length; i++) hash[a[i]] = 1;
+
+  for (let i = 0; i < b.length; i++) {
+    if (hash[b[i]]) res.push(Number(b[i]));
+  }
+
+  return res;
+};
+
+console.log(intersection([4,2,1,6], [3,6,9,2,10])) // -> [2,6]
+console.log(intersection([2,4,6], [4,2])) // -> [2,4]
+console.log(intersection([4,2,1], [1,2,4,6])) // -> [1,2,4]
+console.log(intersection([0,1,2], [10,11])) // -> []
+
