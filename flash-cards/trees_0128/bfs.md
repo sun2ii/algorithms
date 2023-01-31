@@ -1,3 +1,4 @@
+```javascript
 1. BFS Queue  
   q = [r]  
   --> q[0]  
@@ -36,3 +37,4 @@
       (cl|cr) +q(cl|cr)  
   (fx&fy) &=t  
   
+```

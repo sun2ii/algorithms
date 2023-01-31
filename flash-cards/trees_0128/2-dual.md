@@ -1,3 +1,4 @@
+```javascript
 # dual    
 1. same-tree    
   if (!p &!q) return true    
@@ -11,3 +12,4 @@
     
   same-tree(l1, r2) && same-tree(l2, r1)    
         
+```

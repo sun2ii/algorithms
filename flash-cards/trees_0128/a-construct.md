@@ -1,3 +1,4 @@
+```javascript
 # construct  
 1. sorted-to-bst  
   dfs(l,r)->  
@@ -33,3 +34,4 @@
     if(rv!=post[postIdx]) rr = dfs(pre, post)  
     postIdx++  
     
+```

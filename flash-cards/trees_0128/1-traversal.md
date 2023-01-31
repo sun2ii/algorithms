@@ -1,3 +1,4 @@
+```javascript
 1. DFS Recursive      
   pre  XLR    
   in   LXR    
@@ -19,4 +20,4 @@
       +row(st.pop)    
       if (!rl&!rr) +res(st.pop)    
       if(rl) +st(rl)    
-    
+```

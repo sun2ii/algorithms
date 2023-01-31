@@ -1,3 +1,4 @@
+```javascript
 1. path-sum-2  
   dfs(r,path[],x)->  
     +path(nv); x-=nv  
@@ -7,3 +8,4 @@
   
     dfs(rl|r,path,x); bt  
   
+```

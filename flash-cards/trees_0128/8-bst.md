@@ -1,3 +1,4 @@
+```javascript
 # Binary Search Tree  
 1. search-bst  
   (x = rv) return r  
@@ -19,3 +20,4 @@
     rr=dfs(rr,rv)  
       
   
+```

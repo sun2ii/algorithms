@@ -1,3 +1,4 @@
+```javascript
 1. min-abs-diff  
   min=inf,p=-inf  
     t->  
@@ -20,3 +21,4 @@
     --> (i < a.len) +res[a.i++]   
     --> (j < b.len) +res[b.j++]   
   
+```

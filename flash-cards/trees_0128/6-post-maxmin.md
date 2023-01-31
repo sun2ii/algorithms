@@ -1,3 +1,4 @@
+```javascript
 # Max Min (post)  
 1. max-depth-tree  
   dfs-> lr = dfs(lr)  
@@ -18,3 +19,4 @@
     if (!rl|!rr) return rl + 1  
     return min(l, r) + 1  
   
+```

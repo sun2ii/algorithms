@@ -1,3 +1,4 @@
+```javascript
 # other (preorder)  
 1. count-nodes  
   (!r) &= 0  
@@ -36,3 +37,4 @@
   
   
   
+```

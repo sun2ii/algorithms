@@ -1,3 +1,4 @@
+```javascript
 # sums (preorder)  
 1. two-sum  
   dfs->  
@@ -23,3 +24,4 @@
       if (!rl&!rr) return sum  
     return dfs(rl) + dfs(rr)  
   
+```

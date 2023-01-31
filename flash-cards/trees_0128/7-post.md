@@ -1,3 +1,4 @@
+```javascript
 ## Post Order  
 1. invert-tree  
   dfs-> lr = dfs(lr)  
@@ -26,3 +27,4 @@
   dfs(r, x)->  
     return (rv=x ? 1:0) + dfs(rl, x-rv) + dfs(rr, x-rv)  
   
+```

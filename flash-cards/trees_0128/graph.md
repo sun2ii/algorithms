@@ -1,3 +1,4 @@
+```javascript
 1. create-graph  
   dfs(n,par)->  
     nbr=[]  
@@ -18,3 +19,4 @@
     -f>node +q(node,lvl+1)  
     +visit(n)  
     
+```

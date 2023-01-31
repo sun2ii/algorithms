@@ -1,3 +1,4 @@
+```javascript
 1. left view
    bfs -> i=0
 
@@ -6,3 +7,4 @@
 
 3. bottom view
    dfs -> if(!l&!r)
+```
