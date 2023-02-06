@@ -16,7 +16,7 @@
 3. Bottom View    
   st = [r]    
   w-> st[0]    
-    -f> stlen    
+    f-> stlen    
       +row(st.pop)    
       ?(!rl&!rr) +res(st.pop)    
       ?(rl) +st(rl)    
