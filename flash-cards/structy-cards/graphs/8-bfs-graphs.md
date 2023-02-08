@@ -20,3 +20,5 @@
         nR = r + dr; nC = c + dc; nP = nR,nC
         ?(!out & !v.has(nP) & g.nR.nC != 'X'):
           +v(nP); +q([nR,nC,d+1])
+
+3. best-bridge+has-cycle+prereqs-possible
