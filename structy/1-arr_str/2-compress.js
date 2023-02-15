@@ -1,21 +1,19 @@
 const compress = (s) => {
   let i   = 0;
-  let j   = 1;
-  let res = [];
-
-  while (j < s.length) {
-    while (s[j] === s[i]) j++;
-    let num = j - i;
-    if (num <= 1) num = "";
-    res.push(num + s[i]);
-    i = j;
-    j++;
-
-    if (j === s.length && s[i] !== s[i - 1]) res.push(s[i])
+  let j   = 0;
+  let res = "";
+  
+  while (j <= s.length) {
+    if (s[i] === s[j]) j++;
+    else {
+      let count = j - i === 1 ? "" : j - i;
+      res += count + s[i];
+      i = j;
+    }
   }
-
-  return res.join('');
-}
+    
+  return res;
+};
 
 compress('ccaaatsss'); // -> '2c3at3s'
 compress('ssssbbz'); // -> '4s2bz'
