@@ -1,6 +1,5 @@
 const anagrams = (s1, s2) => {
   if (s1.length !== s2.length) return false;
-  let counter = s1.length;
 
   let hash = {};
   for (let i = 0; i < s1.length; i++) {
@@ -11,10 +10,9 @@ const anagrams = (s1, s2) => {
   for (let i = 0; i < s2.length; i++) {
     if (hash[s2[i]] > 0) hash[s2[i]]--;
     else return false;
-    counter--;
   }
 
-  return counter === 0;
+  return true;
 };
 
 console.log(anagrams('restful', 'fluster')); // -> true
