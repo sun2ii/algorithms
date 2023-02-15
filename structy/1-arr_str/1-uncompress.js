@@ -1,22 +1,22 @@
-const uncompress = s => {
-  let res     = '';
-  let currNum = '';
-  let i       = 0;
-
-  while (i < s.length) {
-    while (Number.isInteger(Number(s[i]))) {
-      currNum += s[i];
-      i++;
+const uncompress = (s) => {
+  let i   = 0;
+  let j   = 0;
+  let res = "";
+  let num = "123456789"
+ 
+  while (j < s.length) {
+    if (num.includes(s[j])) j++ 
+    else {
+      let n = Number(s.slice(i, j));
+      for (let i = 0; i < n; i++) res += s[j];
+      j++;
+      i = j;
     }
-
-    for (let j = 0; j < Number(currNum); j++) res += s[i];
-
-    currNum = '';
-    i++;
   }
-
+  
   return res;
-}
+};
+
 
 console.log(uncompress("2c3a1t")); // -> 'ccaaat'
 console.log(uncompress("4s2b")); // -> 'ssssbb'
