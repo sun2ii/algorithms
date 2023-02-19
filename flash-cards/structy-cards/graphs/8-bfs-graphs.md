@@ -21,4 +21,6 @@
         ?(!out & !v.has(nP) & g.nR.nC != 'X'):
           +v(nP); +q([nR,nC,d+1])
 
-3. best-bridge+has-cycle+prereqs-possible
+3. best-bridge
+
+4. knight-attack
