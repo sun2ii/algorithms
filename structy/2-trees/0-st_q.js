@@ -1,15 +1,14 @@
 const dfsStack = (root) => {
   if (!root) return [];
-  let st  = [root];
-  let res = [];
+  let ds = [root], res = [];
 
-  while (st[0]) {
-    let curr = st.pop();
+  while (ds[0]) {
+    let curr = ds.pop();
 
     res.push(curr.val);
 
-    if (curr.right) st.push(curr.right);
-    if (curr.left) st.push(curr.left);
+    if (curr.right) ds.push(curr.right);
+    if (curr.left)  ds.push(curr.left);
   }
 
   return res;
@@ -17,16 +16,15 @@ const dfsStack = (root) => {
 
 const bfsQueue = (root) => {
   if (!root) return [];
-  let q   = [root];
-  let res = [];
+  let ds = [root], res = [];
 
-  while (q[0]) {
-    let curr = q.shift();
+  while (ds[0]) {
+    let curr = ds.shift();
 
     res.push(curr.val);
 
-    if (curr.left) q.push(curr.left);
-    if (curr.right) q.push(curr.right);
+    if (curr.left)  ds.push(curr.left);
+    if (curr.right) ds.push(curr.right);
   }
 
   return res;
