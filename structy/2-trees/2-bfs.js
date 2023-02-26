@@ -39,6 +39,12 @@ const bottomRightValue = (root) => {
     let q = [ {node: root, level: 0} ];
     let res = [];
     let avg = [];
+
+    let sum = arr => {
+      let sum = 0;
+      for (let item of arr) sum += item;
+      return sum;
+    }
     
     while (q.length) {
       let { node, level } = q.shift();
@@ -57,8 +63,3 @@ const bottomRightValue = (root) => {
     return avg;
   };
   
-  let sum = arr => {
-    let sum = 0;
-    for (let item of arr) sum += item;
-    return sum;
-  }

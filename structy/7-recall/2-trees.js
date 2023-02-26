@@ -1,5 +1,24 @@
 // lowest common ancestor
 const lowestCommonAncestor = (root, val1, val2) => {
+    const findPath = (root, targetVal) => {
+        if (root === null) return null;
+        if (root.val === targetVal) return [ root.val ];
+
+        const leftPath = findPath(root.left, targetVal);
+        if (leftPath !== null) {
+            leftPath.push(root.val);
+            return leftPath;
+        }
+
+        const rightPath = findPath(root.right, targetVal);
+        if (rightPath !== null) {
+            rightPath.push(root.val);
+            return rightPath;
+        }  
+
+        return null;
+    };
+
     const path1 = findPath(root, val1);
     const path2 = findPath(root, val2);
     const set2 = new Set(path2);
@@ -9,25 +28,6 @@ const lowestCommonAncestor = (root, val1, val2) => {
     }
 };
   
-const findPath = (root, targetVal) => {
-    if (root === null) return null;
-
-    if (root.val === targetVal) return [ root.val ];
-
-    const leftPath = findPath(root.left, targetVal);
-    if (leftPath !== null) {
-        leftPath.push(root.val);
-        return leftPath;
-    }
-
-    const rightPath = findPath(root.right, targetVal);
-    if (rightPath !== null) {
-        rightPath.push(root.val);
-        return rightPath;
-    }  
-
-    return null;
-};
 
 // flip tree
 const flipTree = (root) => {
