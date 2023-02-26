@@ -27,45 +27,42 @@ const treeHeight = (root) => {
     return dfs(root);
   };
 
-
-// all tree paths
-const allTreePaths = (root) => {
-    if (!root) return [];
-    if (!root.right && !root.left) return [ [ root.val ] ];
-    
-    let res = [];
-    
-    let left = allTreePaths(root.left);
-    for (let sub of left) res.push([root.val, ...sub])
-      
-    
-    let right = allTreePaths(root.right);
-    for (let sub of right) res.push([root.val, ...sub])
-    
-    return res;
-};
-
-// find target path
-const pathFinder = (root, target) => {
+// find x path
+const pathFinder = (root, x) => {
     let dfs = node => {
       if (!node) return null ;
-      if (node.val === target) return [ node.val ]
+      if (node.val === x) return [ node.val ]
       
-      let leftPath  = dfs(node.left);
-      let rightPath = dfs(node.right);
+      let left  = dfs(node.left);
+      let right = dfs(node.right);
       
-      if (leftPath) {
+      if (left) {
         left.push(node.val);
         return left;
       }
       
-      if (rightPath) {
-        rightPath.push(node.val);
-        return rightPath;
+      if (right) {
+        right.push(node.val);
+        return right;
       }
       
       return null;
     }
     
     return dfs(root) ? dfs(root).reverse() : null;
+};
+
+// all tree paths
+const allTreePaths = (root) => {
+    let res = [];
+    if (!root) return [];
+    if (!root.right && !root.left) return [ [ root.val ] ];
+    
+    let left = allTreePaths(root.left);
+    for (let sub of left) res.push([root.val, ...sub])
+      
+    let right = allTreePaths(root.right);
+    for (let sub of right) res.push([root.val, ...sub])
+    
+    return res;
 };
